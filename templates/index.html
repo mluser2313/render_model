@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Prediction</title>
+</head>
+<body>
+    <h1>Enter 24-hour Data for AQI Prediction</h1>
+    <form action="/predict" method="POST">
+        <h3>Enter the hourly data (24 values for each feature, separated by commas):</h3>
+        
+        <div>
+            <label for="clouds">Clouds %:</label><br>
+            <input type="text" id="clouds" name="clouds" placeholder="e.g. 57, 72, 70, ..." required><br>
+
+            <label for="humidity">Humidity:</label><br>
+            <input type="text" id="humidity" name="humidity" placeholder="e.g. 57, 57, 58, ..." required><br>
+
+            <label for="rain">Rain:</label><br>
+            <input type="text" id="rain" name="rain" placeholder="e.g. 0, 0, 0, ..." required><br>
+
+            <label for="temperature">Temperature:</label><br>
+            <input type="text" id="temperature" name="temperature" placeholder="e.g. 16.53, 16.45, 16.17, ..." required><br>
+
+            <label for="time">Time:</label><br>
+            <input type="text" id="time" name="time" placeholder="e.g. 2024-10-29 00:34:20, ..." required><br>
+
+            <label for="wind_speed">Wind Speed:</label><br>
+            <input type="text" id="wind_speed" name="wind_speed" placeholder="e.g. 2.79, 2.69, 2.76, ..." required><br>
+
+            <label for="aqi">AQI:</label><br>
+            <input type="text" id="aqi" name="aqi" placeholder="e.g. 158, 158, 155, ..." required><br>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>Prediction Result:</h3>
+        <p>{{ prediction_text }}</p>
+    {% endif %}
+</body>
+</html>
